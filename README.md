@@ -8,6 +8,7 @@
 
 数据以字为单位输入模型，预训练词向量使用 [搜狗新闻 Word+Character 300d](https://github.com/Embedding/Chinese-Word-Vectors)，[点这里下载](https://pan.baidu.com/s/14k-9jsspp43ZhMxqPmsWMQ)  
 
+为了更加适用与自己的数据，故将原有代码修改，并且在不清楚的地方加上注释。
 ## 环境
 python 3.7  
 pytorch 1.1  
@@ -16,17 +17,28 @@ sklearn
 tensorboardX
 
 ## 中文数据集
-我从[THUCNews](http://thuctc.thunlp.org/)中抽取了20万条新闻标题，已上传至github，文本长度在20到30之间。一共10个类别，每类2万条。
+我从[THUCNews](http://thuctc.thunlp.org/)中抽取了总共20万条(本文最多使用其中的3000条)新闻标题，已上传至github，文本长度在20到30之间。一共6个类别，每类分别分为1000条、3000条和5000条对比组。
 
-类别：财经、房产、股票、教育、科技、社会、时政、体育、游戏、娱乐。
 
-数据集划分：
+类别：财经、房产、股票、教育、科技、社会。
 
-数据集|数据量
---|--
-训练集|18万
-验证集|1万
-测试集|1万
+类别名称|标注
+---|---
+财经 finance|0
+房产 realty |1
+股票 stocks |2
+教育 education|3
+科技 science|4
+社会 society|5
+
+数据集划分：  
+每一组实验数据均按照8:1:1的比例进行训练集、验证集以及测试集的划分
+
+数据集|6000|18000|30000
+---|---|---|---
+训练集|4800|14400|24000
+验证集|600|1800|3000
+测试集|600|1800|3000
 
 
 ### 更换自己的数据集
@@ -38,7 +50,7 @@ tensorboardX
 ## 效果
 
 模型|acc|备注
---|--|--
+---|---|---
 TextCNN|91.22%|Kim 2014 经典的CNN文本分类
 TextRNN|91.12%|BiLSTM 
 TextRNN_Att|90.90%|BiLSTM+Attention
