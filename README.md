@@ -8,7 +8,7 @@
 
 数据以字为单位输入模型，预训练词向量使用 [搜狗新闻 Word+Character 300d](https://github.com/Embedding/Chinese-Word-Vectors)，[点这里下载](https://pan.baidu.com/s/14k-9jsspp43ZhMxqPmsWMQ)  
 
-为了更加适用与自己的数据，故将原有代码修改，并且在不清楚的地方加上注释。
+`相比较原项目，增加了更详细的代码注释，并且针对不同模型新添加了说明文档`
 ## 环境
 python 3.7  
 pytorch 1.1  

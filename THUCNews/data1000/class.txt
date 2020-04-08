@@ -1,6 +1,0 @@
-finance
-realty
-stocks
-education
-science
-society

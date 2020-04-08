@@ -9,7 +9,7 @@ from utils import get_time_dif
 from tensorboardX import SummaryWriter
 
 
-# 权重初始化，默认xavier
+# 权重初始化，默认xavier（就是一种权重初始化方法，内嵌无需掌握）
 def init_network(model, method='xavier', exclude='embedding', seed=123):
     for name, w in model.named_parameters():
         if exclude not in name:
@@ -34,7 +34,7 @@ def train(config, model, train_iter, dev_iter, test_iter):
     # 学习率指数衰减，每次epoch：学习率 = gamma * 学习率
     # scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.9)
     total_batch = 0  # 记录进行到多少batch
-    dev_best_loss = float('inf')
+    dev_best_loss = float('inf')    # 表示正无穷
     last_improve = 0  # 记录上次验证集loss下降的batch数
     flag = False  # 记录是否很久没有效果提升
     writer = SummaryWriter(log_dir=config.log_path + '/' + time.strftime('%m-%d_%H.%M', time.localtime()))

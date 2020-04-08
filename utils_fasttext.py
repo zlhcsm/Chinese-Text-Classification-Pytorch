@@ -29,6 +29,12 @@ def build_vocab(file_path, tokenizer, max_size, min_freq):
 
 
 def build_dataset(config, ues_word):
+    """
+    主要是用来生成字符级的列表
+    :param config:
+    :param ues_word:
+    :return:
+    """
     if ues_word:
         tokenizer = lambda x: x.split(' ')  # 以空格隔开，word-level
     else:

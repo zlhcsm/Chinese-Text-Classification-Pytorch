@@ -27,10 +27,10 @@ if __name__ == '__main__':
     else:
         from utils import build_dataset, build_iterator, get_time_dif
 
-    x = import_module('models.' + model_name)
-    config = x.Config(dataset, embedding)
-    np.random.seed(1)
-    torch.manual_seed(1)
+    x = import_module('models.' + model_name)   # 导入模型
+    config = x.Config(dataset, embedding)       # 对模型进行配置
+    np.random.seed(1)                           # seed设置固定的随机数值
+    torch.manual_seed(1)                        # 神经网络初试化保证种子唯一
     torch.cuda.manual_seed_all(1)
     torch.backends.cudnn.deterministic = True  # 保证每次结果一样
 
